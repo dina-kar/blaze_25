@@ -14,38 +14,9 @@ const pacifico = Pacifico({
   variable: "--font-pacifico",
 })
 
-interface EventCardProps {
-  title: string
-  description: string
-  icon: React.ReactNode
-  date: string
-  delay: number
-}
 
-function EventCard({ title, description, icon, date, delay }: EventCardProps) {
-  return (
-    <motion.div
-      initial={{ opacity: 0, y: 50 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{
-        duration: 0.8,
-        delay: delay,
-        ease: [0.25, 0.4, 0.25, 1],
-      }}
-      className="bg-gradient-to-br from-black/80 to-black/40 backdrop-blur-sm border border-white/10 rounded-xl p-6 flex flex-col h-full"
-    >
-      <div className="mb-4 text-purple-400">{icon}</div>
-      <h3 className="text-xl font-bold text-white mb-2">{title}</h3>
-      <p className="text-white/60 text-sm mb-4 flex-grow">{description}</p>
-      <div className="flex justify-between items-center">
-        <span className="text-xs text-white/40">{date}</span>
-        <Button className="bg-gradient-to-r from-purple-500 to-violet-600 hover:from-purple-600 hover:to-violet-700 text-white border-none">
-          Register
-        </Button>
-      </div>
-    </motion.div>
-  )
-}
+
+
 
 function EventsSection() {
   return (

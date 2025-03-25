@@ -1,7 +1,7 @@
 "use client"
 
 import type React from "react"
-
+import myImage from '../../eielogo.ico';
 import { motion } from "framer-motion"
 import { Pacifico } from "next/font/google"
 import Image from "next/image"
@@ -91,7 +91,7 @@ function ElegantShape({
 }
 
 export default function HeroGeometric({
-  badge = "A Inter College Fest",
+  badge = "EIEA Presents",
   title1 = "",
   title2 = "Blaze'25",
 }: {
@@ -174,7 +174,7 @@ export default function HeroGeometric({
               animate="visible"
               className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/[0.03] border border-white/[0.08] mb-8 md:mb-12"
             >
-              <Image src="https://kokonutui.com/logo.svg" alt="Kokonut UI" width={20} height={20} />
+              <Image src={myImage} alt="EIEA Logo" width={50} height={50} />
               <span className="text-sm text-white/60 tracking-wide">{badge}</span>
             </motion.div>
 
@@ -201,9 +201,11 @@ export default function HeroGeometric({
             </motion.div>
 
             <motion.div custom={3} variants={fadeUpVariants} initial="hidden" animate="visible" className="mt-8">
+            <a href="https://docs.google.com/forms/d/1aodPavFxDL2MrVKfYTYJyk2xEFXdrGouiZwIoXXtxFg/edit" target="_blank" rel="noopener noreferrer">
               <Button className="bg-gradient-to-r from-purple-500 to-violet-600 hover:from-purple-600 hover:to-violet-700 text-white px-8 py-6 text-lg rounded-full">
-                Explore Events
+                Register Now
               </Button>
+            </a>
             </motion.div>
           </div>
         </div>

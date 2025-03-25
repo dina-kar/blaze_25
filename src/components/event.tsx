@@ -18,7 +18,7 @@ interface Event {
   id: string;
   name: string;
   description: string;
-  type: 'fun' | 'tech';
+  type: 'nontech' | 'tech';
   icon: React.ElementType;
   rounds: string[];
   winningCriteria: string;
@@ -26,57 +26,6 @@ interface Event {
 
 // Event data
 const events: Event[] = [
-  {
-    id: 'mind-melt',
-    name: 'Mind Melt',
-    type: 'fun',
-    icon: Brain,
-    description: 'A three-round brain challenge testing logic and memory.',
-    rounds: [
-      'Rearrange sticks to form new shapes',
-      'Identify colors of text instead of reading words',
-      'Recall and list objects from a brief picture view'
-    ],
-    winningCriteria: 'Team with the highest accuracy wins'
-  },
-  {
-    id: 'physy-frensy',
-    name: 'Physy Frensy',
-    type: 'fun',
-    icon: Volleyball,
-    description: 'A fun physical event with balloon-powered structures and a dizzy race.',
-    rounds: [
-      'Use balloons to lift and stack cups into a castle',
-      'Spin 10 times before popping a balloon with an arrow'
-    ],
-    winningCriteria: 'Coordination and speed decide the winning team'
-  },
-  {
-    id: 'cine-funy',
-    name: 'Cine Funy',
-    type: 'fun',
-    icon: Film,
-    description: 'A movie and music-based game testing quick thinking.',
-    rounds: [
-      'Draw and guess movie titles',
-      'Identify songs from short clips',
-      'Recognize Tamil songs written in English'
-    ],
-    winningCriteria: 'Team with the most correct answers wins'
-  },
-  {
-    id: 'triple-dhamaka',
-    name: 'Triple Dhamaka',
-    type: 'fun',
-    icon: Lightbulb,
-    description: 'A thrilling mix of guessing, acting, and problem-solving.',
-    rounds: [
-      'Guess objects while blindfolded using verbal clues',
-      'Imitate a famous personality in a funny scenario',
-      'Solve escape room puzzles'
-    ],
-    winningCriteria: 'Team with best performance across rounds'
-  },
   {
     id: 'circuit-pitch',
     name: 'Circuit Pitch',
@@ -125,6 +74,57 @@ const events: Event[] = [
       'Extra points for working prototype'
     ],
     winningCriteria: 'Judges evaluate clarity, innovation, and technical depth'
+  },
+  {
+    id: 'mind-melt',
+    name: 'Mind Melt',
+    type: 'nontech',
+    icon: Brain,
+    description: 'A three-round brain challenge testing logic and memory.',
+    rounds: [
+      'Rearrange sticks to form new shapes',
+      'Identify colors of text instead of reading words',
+      'Recall and list objects from a brief picture view'
+    ],
+    winningCriteria: 'Team with the highest accuracy wins'
+  },
+  {
+    id: 'physy-frensy',
+    name: 'Physy Frensy',
+    type: 'nontech',
+    icon: Volleyball,
+    description: 'A fun physical event with balloon-powered structures and a dizzy race.',
+    rounds: [
+      'Use balloons to lift and stack cups into a castle',
+      'Spin 10 times before popping a balloon with an arrow'
+    ],
+    winningCriteria: 'Coordination and speed decide the winning team'
+  },
+  {
+    id: 'cine-funy',
+    name: 'Cine Funy',
+    type: 'nontech',
+    icon: Film,
+    description: 'A movie and music-based game testing quick thinking.',
+    rounds: [
+      'Draw and guess movie titles',
+      'Identify songs from short clips',
+      'Recognize Tamil songs written in English'
+    ],
+    winningCriteria: 'Team with the most correct answers wins'
+  },
+  {
+    id: 'triple-dhamaka',
+    name: 'Triple Dhamaka',
+    type: 'nontech',
+    icon: Lightbulb,
+    description: 'A thrilling mix of guessing, acting, and problem-solving.',
+    rounds: [
+      'Guess objects while blindfolded using verbal clues',
+      'Imitate a famous personality in a funny scenario',
+      'Solve escape room puzzles'
+    ],
+    winningCriteria: 'Team with best performance across rounds'
   }
 ];
 
@@ -221,7 +221,7 @@ const EventCard: React.FC<{ event: Event }> = ({ event }) => {
 };
 
 export default function EventsPage() {
-  const [filter, setFilter] = useState<'all' | 'fun' | 'tech'>('all');
+  const [filter, setFilter] = useState<'all' | 'nontech' | 'tech'>('all');
 
   const filteredEvents = filter === 'all' 
     ? events 
@@ -236,7 +236,7 @@ export default function EventsPage() {
 
         {/* Filter Buttons */}
         <div className="flex justify-center mb-8 space-x-4">
-          {(['all', 'fun', 'tech'] as const).map(type => (
+          {(['all', 'nontech', 'tech'] as const).map(type => (
             <button
               key={type}
               onClick={() => setFilter(type)}

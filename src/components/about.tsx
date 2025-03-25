@@ -17,7 +17,7 @@ const AboutPage: React.FC = () => {
     {
       name: 'Gayathri S',
       phone: '+91 8610115938',
-      role: 'Joint Secretary'
+      role: 'General Secretary'
     }
   ];
 
